@@ -40,19 +40,25 @@ class _TextInputFieldState extends State<TextInputField> {
   bool isError = false;
 
   @override
-  void didChangeDependencies() {
-    isError = widget.isError;
-    super.didChangeDependencies();
+  void didUpdateWidget(covariant TextInputField oldWidget) {
+    if (widget.isError != isError) {
+      setState(() {
+        isError = widget.isError;
+      });
+    }
+    super.didUpdateWidget(oldWidget);
   }
 
   FocusNode focusNode = FocusNode();
 
   @override
   void initState() {
-    super.initState();
+    isError = widget.isError;
+
     controller =
         widget.controller ?? TextEditingController(text: widget.initalValue);
     controller.addListener(_controllerListener);
+
     focusNode.addListener(() {
       if (widget.validator != null) {
         if (!focusNode.hasFocus) {
@@ -71,6 +77,8 @@ class _TextInputFieldState extends State<TextInputField> {
         }
       }
     });
+
+    super.initState();
   }
 
   @override
@@ -88,7 +96,7 @@ class _TextInputFieldState extends State<TextInputField> {
     final theme = Theme.of(context);
     return Container(
       decoration: BoxDecoration(
-        color: isError || widget.isError
+        color: isError
             ? const Color.fromRGBO(235, 87, 87, 0.15)
             : const Color.fromRGBO(246, 246, 249, 1),
         borderRadius: BorderRadius.circular(10),
