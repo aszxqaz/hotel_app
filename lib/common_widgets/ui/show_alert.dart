@@ -34,13 +34,13 @@ void showAlert(
                     child: Text(
                       buttonText ?? 'OK',
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
           ),
         ),
-        const Spacer()
+        const Spacer(),
       ],
     ),
   );

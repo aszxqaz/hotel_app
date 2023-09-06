@@ -187,7 +187,9 @@ class _BookingViewState extends State<BookingView> {
   }
 
   List<TextInputProps> getTouristTextInputOptions(
-      Map<String, String> tourist, Map<String, bool> errMap) {
+    Map<String, String> tourist,
+    Map<String, bool> errMap,
+  ) {
     return tourist.keys.map((key) {
       return TextInputProps(
         initialValue: tourist[key],

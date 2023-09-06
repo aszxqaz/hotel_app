@@ -2,7 +2,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:collection/collection.dart';
 import 'package:hotel_app/common_widgets/common_widgets.dart';
 import 'package:hotel_app/helper_fns/validators.dart';
 

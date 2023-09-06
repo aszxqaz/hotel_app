@@ -56,10 +56,10 @@ class _PhotoCarouselState extends State<PhotoCarousel> {
                         errorWidget: (_, __, ___) => errPlaceholder,
                         placeholder: (_, __) => Container(
                           clipBehavior: Clip.antiAlias,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: Color.fromRGBO(238, 238, 238, 1),
                           ),
-                          child: Spinner(),
+                          child: const Spinner(),
                         ),
                         fit: BoxFit.cover,
                       ),
